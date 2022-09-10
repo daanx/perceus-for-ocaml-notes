@@ -11,8 +11,12 @@
   - clambda: done
   - flambda: ignored
   - bytecode gen: ignored
-  - cmm: tbd
-  - x86: tbd
+  - cmm: done
+  - selectgen: done
+- some concerns:
+  - not sure what effect and coeffect mean in selectgen
+    - selected arbitrary effect for dup/drop, will have to stare at it more to see if it breaks things
+    - CSEgen has certain operations marked as "handled specially"; couldn't find the code that handles `Ialloc` and `Ipoll` for amd64
 
 ## 2022-09-06
 
