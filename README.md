@@ -1,5 +1,19 @@
 # Perceus for OCaml (notes)
 
+## 2022-09-10
+
+- https://github.com/ocaml/ocaml/blob/4.14.0/asmcomp/selectgen.ml
+  - instruction selection (cmm to machine-independent assembly)
+- status of adding dup/drop instruction:
+  - parsetree: done
+  - typedtree: done (may need to edit typechecking portion)
+  - lambda: done
+  - clambda: done
+  - flambda: ignored
+  - bytecode gen: ignored
+  - cmm: tbd
+  - x86: tbd
+
 ## 2022-09-06
 
 Plan of attack: 
