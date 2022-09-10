@@ -17,6 +17,15 @@
   - not sure what effect and coeffect mean in selectgen
     - selected arbitrary effect for dup/drop, will have to stare at it more to see if it breaks things
     - CSEgen has certain operations marked as "handled specially"; couldn't find the code that handles `Ialloc` and `Ipoll` for amd64
+- played around with register allocation
+  - need to understand how the calling convention is implemented
+  - tried this:
+    - marked `r10`, `r11` as destroyed in `destroyed_at_oper`
+    - used `r10`, `r11` destructively in Idup, Idrop
+  - expected:
+    - codegen should save `r10`, `r11` on the stack
+  - actual:
+    - no saving is done?
 
 ## 2022-09-06
 
