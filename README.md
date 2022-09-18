@@ -1,5 +1,18 @@
 # Perceus for OCaml (notes)
 
+## 2022-09-18
+
+- Figure out what code Koka generates
+  - Looked at `src/refcount.c.s`
+- Added a new primitive to read refcount
+  - Remember to first run `make coldstart` before `make coreall opt-core`
+  - Currently it just returns the entire object header
+- dup/drop asm codegen:
+  - Mark rax, r10, r11 as destroyed
+  - In asmcomp/amd64/emit.mlp, move the argument into rax and emit a call into an assembly routine defined in runtime/amd64.s
+  - runtime/amd64.s has two new functions: caml_obj_rc_dup, caml_obj_rc_drop
+  - Note: both routines check if the object is a block
+
 ## 2022-09-10
 
 - https://github.com/ocaml/ocaml/blob/4.14.0/asmcomp/selectgen.ml
