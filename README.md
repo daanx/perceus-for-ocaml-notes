@@ -1,5 +1,12 @@
 # Perceus for OCaml (notes)
 
+## 2022-10-03
+
+- Created repo
+  - https://github.com/1ntEgr8/ocaml
+- Edited dup/drop assembly to use less instructions
+- TODO stub out GC to make a call to our malloc
+
 ## 2022-09-18
 
 - Figure out what code Koka generates
