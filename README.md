@@ -5,7 +5,10 @@
 - Created repo
   - https://github.com/1ntEgr8/ocaml
 - Edited dup/drop assembly to use less instructions
-- TODO stub out GC to make a call to our malloc
+- Discovered error while building system from scratch
+  - compat-32 is set during the build which causes our system to crash since we don't support ref-counting for 32-bit systems
+  - `Wosize_hd` fails as a result
+  - possible fix is to disable compat-32 for now
 
 ## 2022-09-18
 
