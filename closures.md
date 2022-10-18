@@ -1,6 +1,6 @@
 # OCaml Closures
 
-## Object representation (64-bit)
+## Memory representation (64-bit)
 
 ```
                +------------+------------+------------+
