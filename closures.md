@@ -3,6 +3,8 @@
 ## Memory representation (64-bit)
 
 ```
+memory representation of OCaml closures
+
                +------------+------------+------------+
                |   header   | code value | info field |
                +------------+------------+------------+
@@ -15,6 +17,8 @@ size in bits         64           64           64
 
 `info field`: Metadata of the closure. It is structured as follows:
 ```
+info field of an OCaml closure
+
          +---------+-------------------+---+
          |  arity  |      field no     | 1 |
          +---------+-------------------+---+
