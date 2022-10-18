@@ -114,6 +114,7 @@ Keep calling convention clear:
 - OCaml call convention: all caller save (https://github.com/whitequark/ocaml-llvm-ng/blob/master/doc/abi.md) 
 - "Alloc calling convention" (or "Runtime calling convention"): all callee save. (like Ialloc does now, and caml_gc) 
 - C calling convention: some registers are callee-save (rbx, rbp, r12-r15) 
+- OCaml native code notes: https://gist.github.com/kayceesrk/002822b2b7b11e928789
 
  
 We may reserve more registers for our fast Idup/Idrop/Ialloc by modifying https://github.com/ocaml/ocaml/blob/trunk/asmcomp/amd64/proc.ml 
