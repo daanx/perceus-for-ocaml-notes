@@ -2,7 +2,29 @@
 
 ## Research Goal
 
-Through this project, we wish to replace OCaml's garbage collector with the Perceus reference counting system.
+Recently, the Koka and Lean languages use novel compiler guided reference counting, called Perceus [1]. Even though good performance
+is reported compared with GC'd languages like OCaml, Haskell, and Java, there is no direct evidence that Perceus can be 
+competitive with a state-of-the-art garbage collector. In this project we aim to create a new Perceus backend for the OCaml
+system to measure the difference between Perceus and GC directly. This is a complex undertaking: OCaml is a large system and
+many design choices in the runtime are made to support fast GC and exceptions, sometimes at the detriment for other designs
+like Perceus -- in particular with respect to the low-level register calling conventions. 
+
+Important steps along the way are:
+
+1. Implement the basic primitives needed for Perceus. Using these primitives we should be able to manually write small benchmark
+   programs and disable the GC -- this will give us an initial baseline of the expected outcomes. This step is already quite involved
+   as it involves creating new low level Perceus instructions in the backend of the compiler, changing the fundamental layout of objects
+   in the runtime system to support reference counts, and compiling the Perceus instructions into efficient assembly (for x64 only for now).
+
+2. Implement the Perceus transformation in the OCaml compiler, generating the primitive instructions from step 1. Again, this is
+   quite involved, needing liveness analysis and basic optimizations like drop-specialization require type information etc. 
+   
+3. Implement full Perceus including reuse analysis.
+
+4. Be able to run the OCaml benchmark suite.
+
+5. Measure how Perceus does compared to the native GC. 
+
 
 Along the way, we wish to study the following:
 
