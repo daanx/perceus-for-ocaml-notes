@@ -13,7 +13,12 @@ Along the way, we wish to study the following:
 
 ## Current status
 
-TODO
+- Disabled generation of GC code for the x86 code generator
+- Implemented emission of several reference counting primitives
+    - Switching into OCaml's C runtime has a non-trivial overhead owing to OCaml's callee-save calling convention. We try to eschew switching into the C runtime as much as possible through fast paths, saving as few registers as possible.
+    - Memory allocation is done using [mimalloc](https://github.com/microsoft/mimalloc), augmented with special fast path code inlined in the OCaml x86 assembly runtime.
+- In the process of automating dup/drop insertion for closures
+    - Complicated by the presence of infix headers and mutually recursive closures.
 
 ## Next steps
 
